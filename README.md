@@ -1,47 +1,29 @@
 # pyspark
 
 Prerequisites:
-Install JDK ( check spark version compatable )
-Install Python
-Install Spark
-    Download spark distribution
-    Store it into one of the mac folder locations
-        Ex: /Users/{UserName}/Documents
-
-    Edit ~/.bashrc
-            export SPARK_HOME=/Users/{UserName}/Documents/spark-3.5.4-bin-hadoop3
-            export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin
-        source ~/.bashrc
-
-Apply spark-shell from terminal
+Install JDK ( check spark version compatable.. here it is jdk21 )
+Install Python3
+Visual studio code
 
 
+Installation of apache-spark:
+        brew install apache-spark
 
-Uninstall Java on mac os
+    set environment variables:
+        export SPARK_HOME=/opt/homebrew/Cellar/apache-spark/3.5.5/libexec
+        export PATH=$SPARK_HOME/bin:$PATH
 
-Check whats's installed with ls -1 /Library/Java/JavaVirtualMachines
+    Go to below location in VisualStudioCode:
 
-for example:
-    $ ls -1 /Library/Java/JavaVirtualMachines
-    jdk1.7.0_80.jdk
-    jdk1.8.0_161.jdk
-    jdk1.8.0_172.jdk
-    jdk1.8.0_181.jdk
-Remove the folder with
-    sudo rm -R /Library/Java/JavaVirtualMachines/jdk1.8.0_161.jdk
-Remove the entry in the OSX Installer database:
-    first, find the entry name with pkgutil --pkgs | grep -i oracle
-    for example:
-        $ pkgutil --pkgs | grep -i oracle
-            com.oracle.jdk8u161
-            com.oracle.jre
-            com.oracle.jdk7u80
-            com.oracle.jdk8u181
-            com.oracle.jdk8u152
-    Then, remove the entry of the JVM you want to remove, e.g. com.oracle.jdk8u161, with
-        sudo pkgutil --forget com.oracle.jdk8u161
-    For those using jenv to manage different JVM/JDK versions, remember to remove the JDK from there too:
-        jenv versions to see what is the name of the JDK you want to remove, then
+        code -> preference -> setting -> {search for 'ENV: Osx'} -> edit the setting.json
         
-        jenv remove oracle64-1.8.0.181`
-        JDK oracle64-1.8.0.181 removed
+        update settings.json with below 
+
+        "terminal.integrated.env.osx": {
+             "SPARK_HOME": "/usr/local/Cellar/apache-spark/3.0.0/libexec"
+            }
+        
+        Restart VisualStudioCode and create virtual machine using requirements.txt from project folder
+
+        pip install -r requirements.txt
+
